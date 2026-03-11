@@ -1,10 +1,10 @@
 AYANEO 2 Display Fix
 
-https://img.shields.io/badge/License-MIT-yellow.svg
-https://img.shields.io/badge/AYANEO-2-blue
-https://img.shields.io/badge/SteamOS-3.x-black
-https://img.shields.io/badge/Bazzite-supported-green
-https://img.shields.io/badge/Windows%252011-limited-yellow
+![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![AYANEO 2](https://img.shields.io/badge/AYANEO-2-blue)
+![SteamOS](https://img.shields.io/badge/SteamOS-3.x-black)
+![Bazzite](https://img.shields.io/badge/Bazzite-supported-green)
+![Windows 11](https://img.shields.io/badge/Windows%2011-limited-yellow)
 
 A utility script to minimize image retention (ghosting) on the AYANEO 2 IPS LCD display . This issue can occur on IPS panels when aggressive power-saving features are enabled, causing static elements to temporarily leave "ghosts" on the screen.
 
