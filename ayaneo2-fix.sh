@@ -190,7 +190,7 @@ set_60hz() {
         
         if [ $? -eq 0 ]; then
             echo -e "${GREEN}✓ Refresh rate set to 60 Hz (mode $MODE_NAME)${NC}"
-            echo -e "${YELLOW}Tip: 60 Hz reduces OLED heat and decreases image retention${NC}"
+            echo -e "${YELLOW}Tip: 60 Hz reduces panel heat and decreases image retention${NC}"
         else
             echo -e "${RED}✗ Failed to apply mode${NC}"
         fi
@@ -265,7 +265,7 @@ show_menu() {
         case $CHOICE in
             "🎬 DISPLAY ONLY (fix image retention)")
                 apply_display_fixes
-                zenity --info --text="✅ Display settings applied!\n\nRecommendations for Ayaneo 2 OLED:\n• Brightness 70-80%\n• Use 60 Hz to reduce heat\n• Don't leave static images for long periods" --width=450
+                zenity --info --text="✅ Display settings applied!\n\nRecommendations for Ayaneo 2:\n• Brightness 70-80%\n• Use 60 Hz to reduce heat\n• Don't leave static images for long periods" --width=450
                 ;;
             "⚡ CPU ONLY (maximum performance)")
                 apply_cpu_fixes
