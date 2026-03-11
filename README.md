@@ -55,20 +55,20 @@ Any Linux with X11/Wayland	✅ Full	Requires typical Linux tools (xrandr, xset, 
 ⚠️ Limited Support
 
 System	Status	Notes
-Windows 11	⚠️ No	This is a Linux/```bash script. For Windows, use CRU to set 60 Hz and disable GPU power saving manually. You can also try turning off "Panel Self Refresh" in AMD Adrenalin software.
+Windows 11	⚠️ No	This is a Linux/bash script. For Windows, use CRU to set 60 Hz and disable GPU power saving manually. You can also try turning off "Panel Self Refresh" in AMD Adrenalin software.
 macOS	❌ No	Not supported
 ChromeOS	❌ No	Not supported
 🐧 Linux Distribution Compatibility
 
 The script works on any Linux distribution with:
 
-```bash
+bash
 xrandr (for display management)
 xset (for DPMS control)
 sudo access
 AMDGPU driver (for AYANEO 2 hardware)
 For non-Arch based systems (Ubuntu, Fedora, etc.):
-```
+
 
 ```bash
 # Ubuntu/Debian
