@@ -1,74 +1,79 @@
 AYANEO 2 Display Fix
 
+# AYANEO 2 Display Fix
+
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![AYANEO 2](https://img.shields.io/badge/AYANEO-2-blue)
 ![SteamOS](https://img.shields.io/badge/SteamOS-3.x-black)
 ![Bazzite](https://img.shields.io/badge/Bazzite-supported-green)
 ![Windows 11](https://img.shields.io/badge/Windows%2011-limited-yellow)
 
-A utility script to minimize image retention (ghosting) on the AYANEO 2 IPS LCD display . This issue can occur on IPS panels when aggressive power-saving features are enabled, causing static elements to temporarily leave "ghosts" on the screen.
+A utility script to minimize **image retention (ghosting)** on the AYANEO 2 IPS LCD display. This issue can occur on IPS panels when aggressive power-saving features are enabled, causing static elements to temporarily leave "ghosts" on the screen.
 
-⚠️ Important Disclaimer
+## ⚠️ Important Disclaimer
 
-This script does NOT "fix" or "cure" a hardware defect.
+**This script does NOT "fix" or "cure" a hardware defect.**
 
 Image retention (also called "ghosting" or "temporary image persistence") can happen on IPS LCD panels under certain conditions. On the AYANEO 2, this is primarily caused by:
+- **Panel Self Refresh (PSR)** features that can cause pixel voltage drift
+- **High refresh rates** generating more heat
+- **Aggressive power management** that underdrives the panel
 
-Panel Self Refresh (PSR) features that can cause pixel voltage drift
-High refresh rates generating more heat
-Aggressive power management that underdrives the panel
-This script minimizes the effect by:
+This script **minimizes** the effect by:
+- Disabling PSR and other power-saving display features
+- Reducing heat generation by offering a stable 60 Hz mode
+- Forcing display refreshes to clear temporary charge buildup
+- Optimizing GPU/CPU power management for consistent panel operation
 
-Disabling PSR and other power-saving display features
-Reducing heat generation by offering a stable 60 Hz mode
-Forcing display refreshes to clear temporary charge buildup
-Optimizing GPU/CPU power management for consistent panel operation
-🔧 What This Script Does
+## 🔧 What This Script Does
 
-Feature	Description
-Display optimizations	Disables PSR, DPMS, and other power-saving features that contribute to ghosting
-CPU performance mode	Sets CPU governor to "performance" for consistent power delivery
-60 Hz mode	Creates and applies 1920×1200@60 Hz mode (reduces heat and panel stress)
-Panel refresh	Forces immediate display refresh to clear temporary retention
-Gamescope restart	Restarts SteamOS gaming session if needed
-Systemd service	Optional auto-apply at boot
-Current settings viewer	Shows GPU mode, CPU governor, available refresh rates
-📱 AYANEO 2 Display Specifications
+| Feature | Description |
+|---------|-------------|
+| **Display optimizations** | Disables PSR, DPMS, and other power-saving features that contribute to ghosting |
+| **CPU performance mode** | Sets CPU governor to "performance" for consistent power delivery |
+| **60 Hz mode** | Creates and applies 1920×1200@60 Hz mode (reduces heat and panel stress) |
+| **Panel refresh** | Forces immediate display refresh to clear temporary retention |
+| **Gamescope restart** | Restarts SteamOS gaming session if needed |
+| **Systemd service** | Optional auto-apply at boot |
+| **Current settings viewer** | Shows GPU mode, CPU governor, available refresh rates |
 
-According to multiple sources , the AYANEO 2 features:
+## 📱 AYANEO 2 Display Specifications
 
-7-inch IPS LCD touchscreen (not OLED)
-Resolution: 1920×1200 (16:10 aspect ratio)
-Brightness: 400 nits
-Contrast ratio: 1200:1
-Color gamut: 135% sRGB
-Glass cover: Single sheet with anti-fingerprint coating 
-🖥️ System Compatibility
+According to multiple sources, the AYANEO 2 features:
+- **7-inch IPS LCD touchscreen** (not OLED)
+- **Resolution**: 1920×1200 (16:10 aspect ratio)
+- **Brightness**: 400 nits
+- **Contrast ratio**: 1200:1
+- **Color gamut**: 135% sRGB
+- **Glass cover**: Single sheet with anti-fingerprint coating
 
-✅ Fully Supported
+## 🖥️ System Compatibility
 
-System	Status	Notes
-SteamOS 3.x (Steam Deck / AYANEO)	✅ Full	Native support, all features work
-Bazzite	✅ Full	SteamOS-like environment, all features work
-Any Arch Linux	✅ Full	Script uses pacman for dependencies
-Any Linux with X11/Wayland	✅ Full	Requires typical Linux tools (xrandr, xset, etc.)
-⚠️ Limited Support
+### ✅ Fully Supported
+| System | Status | Notes |
+|--------|--------|-------|
+| **SteamOS 3.x** (Steam Deck / AYANEO) | ✅ Full | Native support, all features work |
+| **Bazzite** | ✅ Full | SteamOS-like environment, all features work |
+| **Any Arch Linux** | ✅ Full | Script uses pacman for dependencies |
+| **Any Linux with X11/Wayland** | ✅ Full | Requires typical Linux tools (xrandr, xset, etc.) |
 
-System	Status	Notes
-Windows 11	⚠️ No	This is a Linux/bash script. For Windows, use CRU to set 60 Hz and disable GPU power saving manually. You can also try turning off "Panel Self Refresh" in AMD Adrenalin software.
-macOS	❌ No	Not supported
-ChromeOS	❌ No	Not supported
-🐧 Linux Distribution Compatibility
+### ⚠️ Limited Support
+| System | Status | Notes |
+|--------|--------|-------|
+| **Windows 11** | ⚠️ No | This is a Linux/bash script. For Windows, use [CRU](https://www.monitortests.com/forum/Thread-Custom-Resolution-Utility-CRU) to set 60 Hz and disable GPU power saving manually. You can also try turning off "Panel Self Refresh" in AMD Adrenalin software. |
+| **macOS** | ❌ No | Not supported |
+| **ChromeOS** | ❌ No | Not supported |
+
+### 🐧 Linux Distribution Compatibility
 
 The script works on any Linux distribution with:
+- `bash`
+- `xrandr` (for display management)
+- `xset` (for DPMS control)
+- `sudo` access
+- AMDGPU driver (for AYANEO 2 hardware)
 
-bash
-xrandr (for display management)
-xset (for DPMS control)
-sudo access
-AMDGPU driver (for AYANEO 2 hardware)
 For non-Arch based systems (Ubuntu, Fedora, etc.):
-
 
 ```bash
 # Ubuntu/Debian
@@ -77,13 +82,14 @@ sudo apt install x11-xserver-utils zenity
 # Fedora
 sudo dnf install xorg-x11-server-utils zenity
 ```
+
 📦 Installation
 
 Quick Install
 
 ```bash
 # Download the script
-curl -o ~/ayaneo2-fix.sh https://raw.githubusercontent.com/yourusername/ayaneo2-fix/main/ayaneo2-fix.sh
+curl -o ~/ayaneo2-fix.sh https://raw.githubusercontent.com/unlogicalswsw2/Ayaneo2_SteamOS_fix_-retention/main/ayaneo2-fix.sh
 
 # Make it executable
 chmod +x ~/ayaneo2-fix.sh
